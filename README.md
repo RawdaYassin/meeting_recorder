@@ -1,2 +1,2 @@
 # meeting_recorder
- A program that record Ghaymaa session and automatically upload it on the Ghaymaa bucket.
+ A program that record Ghaymaa sessions and automatically upload it on the Ghaymaa S3 bucket.
