@@ -18,11 +18,11 @@ This project is a screen and audio recorder that saves recordings locally and au
       - The recording is automatically uploaded to S3 inside the team1_ghayma_task/ folder.
 
 # [Folder Structure]
-   - Sessions/                # Recorded video files
-   - recorder.py              # Handles screen & audio recording
-   - upload_to_s3.py          # Handles AWS S3 upload
-   - main.py                  # Entry point for recording
-   - README.md                # Project documentation
+   - Sessions folder                 (Recorded video files)
+   - recorder.py              (Handles screen & audio recording)
+   - upload_to_s3.py          (Handles AWS S3 upload)
+   - main.py                 (Entry point for recording)
+   - README.md                (Project documentation)
 
 # [Possible Troubleshooting]
    - "AWS credentials not found!"
