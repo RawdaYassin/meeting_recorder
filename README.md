@@ -15,7 +15,7 @@ This project is a screen and audio recorder that saves recordings locally and au
       - Press Pause to temporarily stop, Resume to continue.
       - Press Stop to end the recording.
     2] Upload to S3
-      - The recording is automatically uploaded to S3 inside the team1_ghayma_task/ folder.
+      - The recording is automatically uploaded to S3 inside the team1_ghayma_task subfolder.
 
 # [Folder Structure]
    - Sessions folder                 (Recorded video files)
