@@ -8,12 +8,12 @@ This project is a screen and audio recorder that saves recordings locally and au
   - Pause & Resume functionality.
   - Stop recording anytime.
 
-[How to Use]
+[How to Use] \n
     1] Run the Recorder
       - python main.py
       - Enter the recording duration in seconds.
       - Press Pause to temporarily stop, Resume to continue.
-      - Press Stop to end the recording.
+      - Press Stop to end the recording.\n
     2] Upload to S3
       - The recording is automatically uploaded to S3 inside the team1_ghayma_task/ folder.
 
