@@ -79,6 +79,7 @@ def record_screen(duration):
                 time.sleep(0.1)
                 continue
             img = sct.grab(monitor)
+            #print(type(img))
             frame = np.array(img)
             frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
             out.write(frame)
