@@ -120,8 +120,14 @@ def record_screen(duration):
                 time.sleep(0.1)
                 continue
             
-            img = sct.grab(monitor)  # Capture screen
+            img = sct.grab(monitor)  # Capture screen (mss.base.ScreenShot/PIL.Image)
             frame = np.array(img)    # Convert to numpy array
+            """
+            When using mss, the captured screenshot is in BGRA format:
+                    Blue, Green, Red, Alpha (transparency channel).
+            OpenCV's VideoWriter expects frames in BGR format:
+                    Blue, Green, R (no Alpha channel)
+            """
             frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)  # Convert color format
             out.write(frame)         # Write frame to video file
     out.release()  # Release the video writer
@@ -137,7 +143,25 @@ def merge_audio_video():
     if shutil.which("ffmpeg") is None:
         messagebox.showerror("Error", "FFmpeg is not installed!")
         return
-    
+    """
+        command = [
+    "ffmpeg",            # FFmpeg executable
+    "-y",                # (Optional) Overwrite output file without asking
+    "-i", "temp_screen_record.avi",  # (Mandatory) Input video file
+    "-i", "temp_audio_record.wav",   # (Mandatory) Input audio file
+    "-c:v", "libx264",   # (Optional) Video codec: H.264 encoder
+    "-preset", "ultrafast", # (Optional) Encoding speed preset
+    "-pix_fmt", "yuv420p",  # (Optional) Pixel format for compatibility
+    "-c:a", "aac",       # (Optional) Audio codec: Advanced Audio Coding
+    "-b:a", "192k",      # (Optional) Audio bitrate
+    "-strict", "experimental", # (Optional) Allow experimental features (for AAC)
+    "-movflags", "+faststart", # (Optional) Optimize for streaming
+    final_output         # (Mandatory) Output file path
+]
+
+    """
+
+
     command = [
         "ffmpeg", "-y", "-i", "temp_screen_record.avi", "-i", "temp_audio_record.wav",
         "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p",
